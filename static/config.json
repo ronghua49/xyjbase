@@ -1,0 +1,25 @@
+{
+	"baseUrl" : "http://192.168.3.111:8001",
+	"hostUrl" : "https://xyfprint.xyjsoft.xyz",
+	"hostUrl85" : "https://xyfprint.xyjsoft.xyz/8985",
+	"hostUrl86" : "https://xyfprint.xyjsoft.xyz/8986",
+  "workflow" : "http://127.0.0.1:7002",
+	"doorUrl" : "http://192.168.3.111:8981",
+  "partplatz" : "http://192.168.3.111:8091",
+  "alarmUrl": "http://192.168.3.111:6680",
+  "leave":"http://127.0.0.1:7006",
+  "xyjim": "http://127.0.0.1:7004",
+	"appName" : "迅宜捷平台",
+  "websocket" : {
+    "enable": true,
+    "hostIp" : "114.116.236.214",
+    "Port" : 9003,
+    "Path" : "/mqtt",
+    "ConnectTimeOut" : 60,
+    "keepAliveInterval" : 10,
+    "subscribetimeout" : 60,
+    "subscribeqos" : 2,
+    "sendqos": 2,
+    "sendretained": true
+  }
+}

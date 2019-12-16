@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src="../js/flexible100.js"></script>
+		<title>好嗨油App下载</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				-webkit-user-select: none;
+			}
+			body {
+				background: #e54216;
+			}
+			button{
+				position: absolute;
+				top: calc(50% - 1rem);
+				left: calc(50% - 3.2rem);
+				display: block;
+				margin: auto;
+				width: 6.4rem;
+				height: .8rem;
+				display: block;
+				background: #e54216;
+				border: none;
+				outline: none;
+				color: #fff;
+				margin-bottom: .8rem;
+				border-radius: .04rem;
+				font-size: .32rem;
+				box-shadow: 0 0 10px 2px rgba(0, 0, 0, .15);
+			}
+			button:active{
+				background: #e24014;
+			}
+		</style>
+	</head>
+	<body>
+		<button type="button" class="download">下载好嗨油App</button>
+	</body>
+	<script src="../js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/xyjApp.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(".download").on('click',function(e){
+		　  var ua = navigator.userAgent.toLowerCase();
+		　　var isWeixin = ua.indexOf('micromessenger') != -1;
+		　　if (isWeixin) {
+			 alert('请在浏览器中打开此页面，下载app！')
+		   　　  return false;
+		　　 }
+			location.href = "http://qp.19n.com/static/other/HHY.apk";
+		});
+	</script>
+</html>

@@ -1,0 +1,90 @@
+<template>
+  <div style="height: 100%;">
+    <xyj-table ref="reftablamain" id="1" v-bind="tablemain">
+
+    </xyj-table>
+  </div>
+</template>
+
+<script>
+  export default {
+    name: "CloudIntercomNotes",
+    data() {
+      return {
+        tablemain: {
+          //不显示表格操作列
+          hasOperation: false,
+          hasExport: true,//导出
+          //el-table设置
+          tableAttrs: {
+            height: "86%",
+            width: "800px",
+          },
+          //el-table事件设置
+          tableOns: {},
+          //表格中的操作列设置
+          operationAttrs: {
+            width: "200px"
+          },
+          //格式化表格字段显示，按照类属性定义格式化函数
+          formatters: {
+            processState: function (row, column, cellValue, index) {
+              switch (cellValue) {
+                case '0':
+                  return "未回复";
+                  break;
+                case '1':
+                  return "已回复";
+                  break;
+                default:
+                  return cellValue;
+              }
+            }
+          },
+          //single: false //单选
+          //admin微服务网址
+          hostUrl: this.global.baseUrl,
+          //表初始化关键字，一般为表名
+          tableName: "CloudTalkbackVo",
+          //查询时的排序字段
+          sorter: [],
+          //业务数据微服务,查询与高级查询
+          bQuery: {
+            hostUrl: this.global.doorUrl,
+            url: "nestleHomelandController/cloudtalkback",
+            method: 'post',
+            notCondition: true //没有查询条件则查询全部数据
+          },
+          InitQuery: {}, //表格初始化时查询条件
+          bExport: {
+            // url: baseUrl+"/sysTableinfo/query", //查询接口，如果不填写默认为表格查询网址bQuery
+            tableName: "CloudTalkbackVo",//如果为空系统默认为，表初始化关键字
+            fileName: ""//自定义文件名,如果为空则根据实体类名称定义下载文件名
+          },
+          /*
+          BillVo   账单记录
+          BillParamVo  账单记录传参vo
+          CallerVo  访客记录
+          CallerParamVo   访客记录传参vo
+          CallPoliceVo  报警记录
+          CallPoliceParamVo   报警记录传参vo
+          CloudTalkbackVo  云对讲记录
+          CloudTalkbackParamVo   云对讲记录传参vo
+          ComplainVo  投诉记录
+          ComplainParamVo   投诉记录传参vo
+          */
+        },
+      }
+    },
+    mounted(){
+      if (this.$route.name && this.tablemain.bExport) {
+        this.tablemain.bExport.fileName = this.$route.name;
+      }
+    },
+    methods: {}
+  }
+</script>
+
+<style scoped>
+
+</style>

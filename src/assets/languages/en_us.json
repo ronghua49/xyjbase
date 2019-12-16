@@ -1,0 +1,124 @@
+{
+    "common": {
+        "home": "Home",
+        "login": "Login",
+        "logout": "Logout",
+        "doc": "Document",
+        "blog": "Blog",
+        "projectRepo": "Project",
+        "myMsg": "My Message",
+        "config": "Config",
+        "backup": "Backup",  
+        "restore": "Restore",  
+        "backupRestore": "Backup Restore",  
+        "versionName": "Version",  
+        "exit": "Exit"
+    },
+    "action": {
+        "operation": "Operation",
+        "Reoperation": "Reoperation",
+        "add": "Add",
+        "edit": "Edit",
+        "delete": "Delete",
+        "batchDelete": "Batch Delete",
+        "search": "Search",
+        "loading": "loading",
+        "submit": "Submit",
+        "comfirm": "Comfirm",
+        "cancel": "Cancel",
+        "reset": "Reset",
+        "save": "Save",
+        "changePassword": "Change Password",
+        "refresh": "Refresh",
+        "versionSettings": "Version settings",
+        "frozen": "Frozen",
+        "thaw": "Thaw",
+        "download": "download",
+        "contrast": "Contrast",
+        "export": "export",
+        "exportPPT": "exportPPT",
+        "Import": "Import",
+        "chooseVehicleType": "choose Vehicle Type",
+        "downloadTemplate": "Download template",
+        "selectEntityClasses": "Select Entity Classes",
+        "newMultilevelHeader": "New Multilevel Header",
+        "allEntityClassInitialize": "All Entity Class Initialization",
+        "dataExport": "Data export",
+        "derivedBenchmark": "Derived benchmark",
+        "benchmarkingCar": "Benchmarking car",
+        "qmodify": "editing",
+        "approvalIng": "approvaling",
+        "reject": "reject",
+        "complete": "ProcessEnd",
+        "ticketcancel": "nullify",
+        "laborWage": "labor wage",
+        "viewemployees":"View Employees",
+        "testbutton":"Test Button"
+    },
+    "sys": {
+        "sysMng": "System Manage",
+        "userMng": "User Manage",
+        "deptMng": "Dept Manage",
+        "roleMng": "Role Manage",
+        "menuMng": "Menu Manage",
+        "logMng": "Log Manage",
+        "sysMonitor": "System Monitor"
+    },
+    "workflow": {
+      "add": "New",
+      "export": "Export",
+      "import": "ImportModel",
+      "deploy": "Batch Deploy",
+      "modify": "modify",
+      "sdeploy": "deploy",
+      "delete": "Delete",
+      "Viewflowchart":"View flow chart",
+      "Business": "Business",
+      "ApprovalDetails": "Details",
+      "agree": "Approval",
+      "countersign": "Jointly sign",
+      "selectsign": "Pick up",
+      "agency": "Transfer to office",
+      "reject": "Reject",
+      "rejecttostart": "Rejection of sponsors",
+      "rejecttoassign": "Selective dismissal",
+      "termination": "termination",
+      "hangupbut": "hangup",
+      "clientactivation": "activation",
+      "hangup": "hangup",
+      "activation": "activation",
+      "launch": "Launch",
+      "BusinessList": "DataList",
+      "AgreeDialog": {
+        "Agree": "Agree",
+        "cancel": "cancel"
+      },
+      "rejectTask": {
+        "reject": "reject",
+        "cancel": "cancel"
+      },
+      "rejectFirstTask": {
+        "reject": "Rejection initiator",
+        "cancel": "cancel"
+      },
+      "selectReject": {
+        "reject": "Reject",
+        "cancel": "cancel"
+      }
+    },
+    "xyfbaseSet": {
+      "add": "New",
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "xyftf": {
+      "add": "New",
+      "view": "View",
+      "return": "Return"
+    },
+    "ProcessDef": {
+      "GeneraModel": "GeneraModel",
+      "EnabledState": "stop",
+      "Delete": "delete"
+    }
+}

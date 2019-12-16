@@ -1,0 +1,124 @@
+{
+    "common": {
+        "home": "首页",
+        "login": "登录",
+        "logout": "退出登录",
+        "doc": "文档",
+        "blog": "博客",
+        "projectRepo": "项目",
+        "myMsg": "我的消息",
+        "config": "系统配置",
+        "backup": "备份",
+        "restore": "还原",
+        "backupRestore": "备份还原",
+        "versionName": "版本名称",
+        "exit": "退出"
+    },
+    "action": {
+        "operation": "操作",
+        "Reoperation": "重新操作",
+        "add": "新增",
+        "edit": "编辑",
+        "delete": "删除",
+        "batchDelete": "批量删除",
+        "search": "查询",
+        "loading": "拼命加载中",
+        "submit": "提交",
+        "comfirm": "确定",
+        "cancel": "取消",
+        "reset": "重置",
+        "save": "保存",
+        "changePassword": "修改密码",
+        "refresh": "刷新",
+        "versionSettings": "版本设置",
+        "frozen": "冻结",
+        "thaw": "解冻",
+        "download": "下载",
+        "contrast": "对比",
+        "export": "导出",
+        "exportPPT": "导出PPT",
+        "Import": "导入",
+        "chooseVehicleType": "选择车型",
+        "downloadTemplate": "下载模板",
+        "selectEntityClasses": "选择实体类",
+        "newMultilevelHeader": "新增多级表头",
+        "allEntityClassInitialize":"全部实体类初始化",
+        "dataExport":"数据导出",
+        "derivedBenchmark": "导出标杆",
+        "benchmarkingCar": "标杆车",
+        "qmodify": "编辑中",
+        "approvalIng": "审批中",
+        "reject": "驳回",
+        "complete": "流程结束",
+        "ticketcancel": "作废",
+        "laborWage": "劳务费",
+        "viewemployees":"查看员工",
+        "testbutton":"测试按钮"
+    },
+    "sys": {
+        "sysMng": "系统管理",
+        "userMng": "用户管理",
+        "deptMng": "机构管理",
+        "roleMng": "角色管理",
+        "menuMng": "菜单管理",
+        "logMng": "日志管理",
+        "sysMonitor": "系统监控"
+    },
+    "workflow": {
+      "add": "新增",
+      "export": "导出",
+      "import": "导入模型",
+      "deploy": "批量部署",
+      "modify": "修改",
+      "sdeploy": "部署",
+      "delete": "删除",
+      "Viewflowchart":"查看流程图",
+      "Business": "业务表单",
+      "ApprovalDetails": "审批详情",
+      "agree": "审批",
+      "countersign": "会签",
+      "selectsign": "选签",
+      "agency": "转办",
+      "reject": "驳回上一级",
+      "rejecttostart": "驳回发起人",
+      "rejecttoassign": "选择驳回",
+      "termination": "终止",
+      "hangupbut": "挂起",
+      "clientactivation": "激活",
+      "hangup": "挂起",
+      "activation": "激活",
+      "launch": "发起",
+      "BusinessList": "数据列表",
+      "AgreeDialog": {
+        "Agree": "同意",
+        "cancel": "取消"
+      },
+      "rejectTask": {
+        "reject": "驳回",
+        "cancel": "取消"
+      },
+      "rejectFirstTask": {
+        "reject": "驳回发起人",
+        "cancel": "取消"
+      },
+      "selectReject": {
+        "reject": "驳回",
+        "cancel": "取消"
+      }
+    },
+    "xyfbaseSet": {
+      "add": "新增",
+      "edit": "编辑",
+      "delete": "删除"
+    },
+    "xyftf": {
+      "add": "新增",
+      "view": "查看",
+      "return": "返回"
+    },
+    "ProcessDef": {
+      "GeneraModel": "生成模型",
+      "EnabledState": "启动",
+      "Delete": "删除"
+    }
+}

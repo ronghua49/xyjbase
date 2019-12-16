@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style>
+    	*{
+    		margin: 0;
+    		padding: 0;
+    	}
+    	body{
+    		background:#D9D9D9 !important;
+    	}
+    	.content{
+    		background:#FFFFFF !important;
+    		padding-bottom: 0.5rem;
+    	}
+    	header{
+    		height:0.8rem;
+    		font-size: 0.36rem;
+    		line-height: 0.8rem;
+    		box-sizing: border-box;
+    		padding-left: 0.3rem;
+    		font-weight: bold;
+    	}
+    	.imgBox img{
+    		width: 100%;
+    	}
+    	.title{
+    		width: 100%;
+    		height: 0.8rem;
+    		display: flex;
+    		font-size: 0.36rem;
+    		align-items: center;
+    		justify-content: center;
+    		font-weight: bold;
+    		color: #FF1D2B;
+    	}
+    	.wrap{
+    		display: flex;
+    		justify-content: space-between;
+    		box-sizing: border-box;
+    		padding: 0 1rem;
+    		margin-top: 0.5rem;
+    	}
+    	.wrap .c-left{
+    		display: flex;
+    		flex-direction: column;
+    		align-items: center;
+    		justify-content: center;
+    		font-size: 0.26rem;
+    	}
+    	.wrap img{
+    		width: 2rem;
+    	}
+    	.wrap .c-right{
+    		display: flex;
+    		flex-direction: column;
+    		align-items: center;
+    		justify-content: center;
+    		font-size: 0.26rem;
+    		margin-top: 0.3rem;
+    	}
+    	.cont{
+    		width: 85%;
+    		margin: 0 auto;
+    		height: 0.88rem;
+    		margin-top: 0.35rem;
+    		position: relative;
+    	}
+    	.btn{
+    		position: absolute;
+    		height: 0.6rem;
+    		top: 0.55rem;
+    		right: 0.3rem;
+    		border: none;
+    		outline: none;
+    		font-size: 0.18rem;
+    		width:1.5rem;
+    		color: white;
+    		background: darkgoldenrod;
+    	}
+    	.put{
+    		border: none;
+    		width: 100%;
+    		outline: none;
+    		height: 0.88rem !important;
+    		padding-left: 2.5rem;
+    		box-sizing: border-box;
+    		border-bottom: 1px solid #E5E5E5;
+    	}
+    	.foot{
+    		width: 85%;
+    		margin: 0 auto;
+    		display: flex;
+    		height: 0.88rem;
+    		background: #FF1D2B;
+    		font-size: 0.26rem;
+    		display: flex;
+    		align-items: center;
+    		justify-content: center;
+    		margin-top: 1rem;
+    		margin-bottom: 1rem;
+    		color: white;
+    	}
+    	.box{
+    		width: 100%;
+    		margin: 0 auto;
+    		height: 1.2rem;
+    		display: flex;
+    		background: #f9d852;
+    		justify-content: space-between;
+    		align-items: center;
+    		border-radius: 5px;
+    		color: #ff153a;
+    	}
+    	.box .box_left{
+    		display: flex;
+    		flex-direction: column;
+    		align-items: center;
+    		justify-content: center;
+    		padding-left: 0.3rem;
+    	}
+    	.box .box_right{
+    		width: 50%;
+    		display: flex;
+    		align-items: center;
+    		justify-content: space-between;
+    		padding-right: 0.3rem;
+    		padding-bottom: 0.25rem;
+    	}
+    	.box_wrap{
+    		width:7rem;
+				height:5rem;
+				background:#FFFFFF;
+				box-shadow:0px 3px 5px 3px rgba(153,153,153,0.51);
+				border-radius:0.2rem;
+				margin: 0 auto;
+    	}
+    	.footer{
+    		background: #FFFFFF;
+    		padding-bottom: 0.5rem;
+    	}
+    	.active{
+    		margin: 0 auto;
+    		height: 1rem;
+    		background: #FFFFFF;
+    		font-size:0.36rem;
+    		display: flex;
+    		align-items: center;
+    		justify-content: center;
+    	}
+    	.footer_left{
+    		width:3.5rem;
+    		height: 0.9rem;
+    		margin: 0 auto;
+    		display: flex;
+    		background:#FF3907;
+    		border-radius: 0.45rem;
+    		line-height: 0.9rem;
+    		align-items: center;
+    		justify-content: center;
+    	}
+    	.footer_right{
+    		width:3.5rem;
+    		height: 0.9rem;
+    		margin: 0 auto;
+    		margin-top:0.3rem ;
+    		display: flex;
+    		background:#F39800;
+    		border-radius: 0.45rem;
+    		line-height: 0.9rem;
+    		align-items: center;
+    		justify-content: center;
+    	}
+    	.footer_left img{
+    			width: 0.48rem;
+    			height: 0.48rem;
+    			margin-right: 0.1rem;
+    	}
+    	.footer_right img{
+    			width: 0.48rem;
+    			height: 0.48rem;
+    			margin-right: 0.1rem;
+    	}
+    	.footer_right div{
+    			font-size:0.3rem;
+					font-weight:500;
+					color:white;
+    		}
+    	.footer_left div{
+    			font-size:0.3rem;
+					font-weight:500;
+					color:white;
+    		}
+    		.mag{
+    			background:#D9D9D9;
+    			height: 0.2rem;
+    		}
+    		.yh{
+    			color: #333333;
+    		}
+    		.hhy{
+    			margin-left: 0.3rem;
+    			color:#E84218;
+    			margin-right: 0.2rem;
+    		}
+    </style>
+    <title>好嗨油</title>
+  </head>
+  <body>
+	<div class="content">
+		<div class="imgBox">
+			<img src="../img/generalize_icon_img1.png" class="imglogo"/>
+		</div>
+		<div class="box_wrap">
+				<div class="cont">
+					<input type="text" placeholder="请输入手机号" id="phone" class="put" maxlength="11">
+				</div>
+				<div class="cont">
+					<input type="text" placeholder="请输入验证码" class="put" maxlength="6" id="code">
+					<button class="btn">获取验证码</button>
+				</div>
+				<div class="foot">
+					免费领取
+				</div>
+		</div>
+		</div>
+		<div class="mag"></div>
+		<div class="active">
+			<div class="yh">更多优惠尽在</div>
+			<div class="hhy">好嗨油</div>
+		</div>
+		<div class="footer">
+			<div class="footer_left">
+				<img src="../img/a.png"/>
+			
+				<div>安卓下载</div>
+			</div>
+			<div class="footer_right">
+					<img src="../img/apple.png"/>
+				<div>IOS下载</div>
+			</div>
+	</div>	
+    <script src="../js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/jquery-1.12.4.min.js"></script>
+    <script src="../js/xyjApp.js"></script>
+   <script src="../js/flexible100.js"></script>
+   <script src="../js/md5.js"></script>
+   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+    let imglogo="";
+	 	var url2 = "http://39.105.40.60:6007/sysCoupon/listTgSysCoupon?user_id="+location.search.slice(1);
+			xyjApp.ajax(url2,'get',{},function(data){
+					if ( data.hasOwnProperty('error') ) {
+						xyjApp.toast('系统错误');
+						return;
+					}
+					var list=data.data
+//					for(var i=0;i<list.length;i++){
+//							var html='';
+//							html+=`<div class="box">
+//												<div class="box_left">
+//													<div style="display: flex;align-items: center;"><span style="font-weight: bold;font-size: 0.3rem;">￥</span><span style="font-size: 0.36rem;font-weight: bold;">${list[i].couponDiscount}</span></div>
+//													<div style="display: flex;align-items: center;"><span style="font-size: 0.2rem">满${list[i].couponPremoney}元可用</span></div>
+//												</div>
+//											  <div class="box_right">
+//											  	<div style="font-size: 0.26rem;font-weight: bold;"><span>${list[i].couponName}</span></div>`
+//											html+=`</div>
+//										</div>`
+//					}
+//					$(".wrap").html(html);
+			});
+    	$(".btn").click(function(){
+    		$(this).attr("disabled","disabled")
+    		if(!$.trim($("#phone").val())){
+						 xyjApp.toast('手机号不能为空');
+						 $(this).removeAttr("disabled","disabled")
+					 	 return false;
+				}
+    		var num=60;
+    		_this=$(this)
+    		timer = setInterval(function() {
+						if(num == 0) {
+							clearInterval(timer);
+							num = 60;
+							_this.attr("data",'');
+							$(".btn").removeAttr('disabled');
+							$(".btn").text('重新获取');
+							$(this).removeAttr("disabled","disabled");
+							return false;
+						}
+						num--;
+						$(".btn").text(num+"s");
+					}, 1000);
+					if($.trim($("#phone").val())==""){
+						clearInterval(timer);
+						num=60;
+					}
+			 	var myreg=/^[1][3,4,5,7,8][0-9]{9}$/;
+					if (!myreg.test($.trim($("#phone").val()))) {
+	            xyjApp.toast('手机号格式错误');
+	            return false;
+					};
+				var url1 = "http://39.105.40.60:6008/appUser/getVerificationCode/"+$("#phone").val()+"/"+location.search.slice(1);
+				xyjApp.ajax(url1,'get',{},function(data){
+					$("#code").attr('data',data.msg)
+						if ( data.hasOwnProperty('error') ) {
+							xyjApp.toast('系统错误');
+							return;
+						}
+				});
+    	})
+			$(".foot").click(function(){
+					if($("#code").val()==""){
+						 xyjApp.toast('验证码不能为空');
+					}
+					var mdState=$("#code").attr('data')
+					var mdtxt=$.md5($("#code").val())
+					if(mdState==mdtxt){
+							axios({
+							  method: 'post',
+							  url: 'http://39.105.40.60:6008/appUser/save/',
+							  data: {phone:$("#phone").val(),user_id:location.search.slice(1)}
+							}).then(res=>{
+								 xyjApp.toast('领取成功');
+								 setTimeout(function(){
+								 	location.href = "http://qp.19n.com/static/other/html/downloadApp.html"
+								 },1000)
+							}).catch(error=>{
+								console.log(error)
+							})
+					}else{
+						return false
+					}
+			})
+			axios({
+			  method: 'post',
+			  url: 'http://39.105.40.60:6007/appTgSet/query',
+			  data: {}
+			}).then(res=>{
+				$(".imglogo").attr('src',res.data.data.rows[0].shareImg)
+			}).catch(error=>{
+				console.log(error)
+			})
+			$(".footer_right").click(function(){
+				 	location.href = "http://qp.19n.com/static/other/html/downloadApp.html"
+			})
+			$(".footer_left").click(function(){
+				 	location.href = "http://qp.19n.com/static/other/html/downloadApp.html"
+			})
+    </script>
+</body>
+</html>
