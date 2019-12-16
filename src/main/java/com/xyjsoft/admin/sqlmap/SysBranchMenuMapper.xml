@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyjsoft.admin.dao.SysBranchMenuMapper">
+
+  <resultMap id="BaseResultMap" type="com.xyjsoft.admin.model.SysBranchMenu">
+	<id column="id" jdbcType="BIGINT" property="id" />
+	<result column="name" jdbcType="VARCHAR" property="name" />
+	<result column="parent_id" jdbcType="BIGINT" property="parentId" />
+	<result column="url" jdbcType="VARCHAR" property="url" />
+	<result column="perms" jdbcType="VARCHAR" property="perms" />
+	<result column="type" jdbcType="INTEGER" property="type" />
+	<result column="icon" jdbcType="VARCHAR" property="icon" />
+	<result column="order_num" jdbcType="INTEGER" property="orderNum" />
+	<result column="process_key" jdbcType="VARCHAR" property="processKey" />
+	<result column="process_name" jdbcType="VARCHAR" property="processName" />
+	<result column="process_id" jdbcType="VARCHAR" property="processId" />
+	<result column="remark" jdbcType="VARCHAR" property="remark" />
+	<result column="create_by" jdbcType="VARCHAR" property="createBy" />
+	<result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+	<result column="last_Update_By" jdbcType="VARCHAR" property="lastUpdateBy" />
+	<result column="last_Update_Time" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+  </resultMap>
+  
+  <sql id="Base_Column_List">
+    id, parent_id, name, url, perms, type, icon, order_num, create_by, create_time, 
+    last_update_by, last_update_time, process_key, process_name,process_id
+  </sql>
+  
+  <insert id="add" parameterType="com.xyjsoft.admin.model.SysBranchMenu">
+    insert into sys_branch_menu
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="parentId != null">
+        parent_id,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+      <if test="perms != null">
+        perms,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="icon != null">
+        icon,
+      </if>
+      <if test="orderNum != null">
+        order_num,
+      </if>
+      <if test="processKey != null">
+        process_key,
+      </if>
+      <if test="processName != null">
+        process_name,
+      </if>
+      <if test="processId != null">
+        process_id,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="lastUpdateBy != null">
+        last_Update_By,
+      </if>
+      <if test="lastUpdateTime != null">
+        last_Update_Time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null">
+        #{parentId,jdbcType=BIGINT},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="perms != null">
+        #{perms,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="icon != null">
+        #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNum != null">
+        #{orderNum,jdbcType=INTEGER},
+      </if>
+      <if test="processKey != null">
+        #{processKey,jdbcType=VARCHAR},
+      </if>
+      <if test="processName != null">
+        #{processName,jdbcType=VARCHAR},
+      </if>
+      <if test="processId != null">
+        #{processId,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdateBy != null">
+        #{lastUpdateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+
+  <delete id="delete" parameterType="java.lang.Long">
+    delete from sys_branch_menu
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  
+  <update id="update" parameterType="com.xyjsoft.admin.model.SysBranchMenu">
+    update sys_branch_menu
+    <set>
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null">
+        parent_id = #{parentId,jdbcType=BIGINT},
+      </if>
+      <if test="url != null">
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="perms != null">
+        perms = #{perms,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="icon != null">
+        icon = #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNum != null">
+        order_num = #{orderNum,jdbcType=INTEGER},
+      </if>
+      <if test="processKey != null">
+        process_key = #{processKey,jdbcType=VARCHAR},
+      </if>
+      <if test="processName != null">
+        process_name = #{processName,jdbcType=VARCHAR},
+      </if>
+      <if test="processId != null">
+        process_id = #{processId,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdateBy != null">
+        last_Update_By = #{lastUpdateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        last_Update_Time = #{lastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="findById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select * from sys_branch_menu
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  
+  <select id="findPage" resultMap="BaseResultMap">
+    select * from sys_branch_menu
+  </select>
+
+  <select id="query" parameterType="java.util.Map" resultMap="BaseResultMap">
+		SELECT * FROM sys_branch_menu
+		<where>
+			<if test="whereSql!=null">
+				${whereSql}
+			</if>
+		</where>
+		<if test="orderBySql!=null">
+			ORDER BY ${orderBySql}
+		</if>
+		<if test="orderBySql==null">
+			ORDER BY id DESC
+		</if>
+	</select>
+	
+	<select id="summary" parameterType="java.util.Map" resultType="java.util.Map">
+		SELECT ${summaryBySql} FROM sys_branch_menu
+		<where>
+			<if test="whereSql!=null">
+				${whereSql}
+			</if>
+		</where>
+		<if test="orderBySql!=null">
+			ORDER BY ${orderBySql}
+		</if>
+		<if test="orderBySql==null">
+			ORDER BY id DESC
+		</if>
+	</select>
+	
+  <select id="findAll"  resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_branch_menu
+  </select>
+  
+  <select id="findByUserName" parameterType="java.lang.String" resultMap="BaseResultMap">
+  	select m.* from 
+  	sys_branch_menu m, 
+  	sys_branch_user u, 
+  	sys_branch_user_role ur, 
+  	sys_branch_role_menu rm
+  	where u.userName = #{userName,jdbcType=BIGINT} and u.id = ur.user_id 
+  	and ur.role_id = rm.role_id and rm.menu_id = m.id
+  </select>
+  
+  <select id="findRoleMenus" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select m.* from 
+    sys_branch_menu m, 
+    sys_branch_role_menu rm
+    where rm.role_id = #{roleId,jdbcType=BIGINT}
+    and m.id = rm.menu_id
+  </select>
+</mapper>

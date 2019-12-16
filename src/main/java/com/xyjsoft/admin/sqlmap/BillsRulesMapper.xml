@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyjsoft.admin.dao.BillsRulesMapper">
+
+  <resultMap id="BaseResultMap" type="com.xyjsoft.admin.model.BillsRules">
+	<id column="id" jdbcType="BIGINT" property="id" />
+	<result column="date_rule" jdbcType="VARCHAR" property="dateRule" />
+	<result column="time_rule" jdbcType="VARCHAR" property="timeRule" />
+	<result column="end_rule" jdbcType="INTEGER" property="endRule" />
+	<result column="end_num" jdbcType="INTEGER" property="endNum" />
+	<result column="one_two" jdbcType="VARCHAR" property="oneTwo" />
+	<result column="two_three" jdbcType="VARCHAR" property="twoThree" />
+	<result column="order_rule" jdbcType="VARCHAR" property="orderRule" />
+	<result column="data_Id" jdbcType="VARCHAR" property="dataId" />
+	<result column="data_type" jdbcType="VARCHAR" property="dataType" />
+	<result column="last_num" jdbcType="INTEGER" property="lastNum" />
+	<result column="last_date" jdbcType="VARCHAR" property="lastDate" />
+	<result column="create_by" jdbcType="VARCHAR" property="createBy" />
+	<result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+	<result column="last_Update_By" jdbcType="VARCHAR" property="lastUpdateBy" />
+	<result column="last_Update_Time" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+	<result column="post_id" jdbcType="BIGINT" property="postId" />
+	<result column="cid" jdbcType="BIGINT" property="cid" />
+  </resultMap>
+  
+  <insert id="add" parameterType="com.xyjsoft.admin.model.BillsRules">
+    insert into bills_rules
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="dateRule != null">
+        date_rule,
+      </if>
+      <if test="timeRule != null">
+        time_rule,
+      </if>
+      <if test="endRule != null">
+        end_rule,
+      </if>
+      <if test="endNum != null">
+        end_num,
+      </if>
+      <if test="oneTwo != null">
+        one_two,
+      </if>
+      <if test="twoThree != null">
+        two_three,
+      </if>
+      <if test="orderRule != null">
+        order_rule,
+      </if>
+      <if test="dataId != null">
+        data_Id,
+      </if>
+      <if test="dataType != null">
+        data_type,
+      </if>
+      <if test="lastNum != null">
+        last_num,
+      </if>
+      <if test="lastDate != null">
+        last_date,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="lastUpdateBy != null">
+        last_Update_By,
+      </if>
+      <if test="lastUpdateTime != null">
+        last_Update_Time,
+      </if>
+      <if test="postId != null">
+        post_id,
+      </if>
+      <if test="cid != null">
+        cid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="dateRule != null">
+        #{dateRule,jdbcType=VARCHAR},
+      </if>
+      <if test="timeRule != null">
+        #{timeRule,jdbcType=VARCHAR},
+      </if>
+      <if test="endRule != null">
+        #{endRule,jdbcType=INTEGER},
+      </if>
+      <if test="endNum != null">
+        #{endNum,jdbcType=INTEGER},
+      </if>
+      <if test="oneTwo != null">
+        #{oneTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="twoThree != null">
+        #{twoThree,jdbcType=VARCHAR},
+      </if>
+      <if test="orderRule != null">
+        #{orderRule,jdbcType=VARCHAR},
+      </if>
+      <if test="dataId != null">
+        #{dataId,jdbcType=VARCHAR},
+      </if>
+      <if test="dataType != null">
+        #{dataType,jdbcType=VARCHAR},
+      </if>
+      <if test="lastNum != null">
+        #{lastNum,jdbcType=INTEGER},
+      </if>
+      <if test="lastDate != null">
+        #{lastDate,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdateBy != null">
+        #{lastUpdateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="postId != null">
+        #{postId,jdbcType=BIGINT},
+      </if>
+      <if test="cid != null">
+        #{cid,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+
+  <delete id="delete" parameterType="java.lang.Long">
+    delete from bills_rules
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  
+  <update id="update" parameterType="com.xyjsoft.admin.model.BillsRules">
+    update bills_rules
+    <set>
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      <if test="dateRule != null">
+        date_rule = #{dateRule,jdbcType=VARCHAR},
+      </if>
+      <if test="timeRule != null">
+        time_rule = #{timeRule,jdbcType=VARCHAR},
+      </if>
+      <if test="endRule != null">
+        end_rule = #{endRule,jdbcType=INTEGER},
+      </if>
+      <if test="endNum != null">
+        end_num = #{endNum,jdbcType=INTEGER},
+      </if>
+      <if test="oneTwo != null">
+        one_two = #{oneTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="twoThree != null">
+        two_three = #{twoThree,jdbcType=VARCHAR},
+      </if>
+      <if test="orderRule != null">
+        order_rule = #{orderRule,jdbcType=VARCHAR},
+      </if>
+      <if test="dataId != null">
+        data_Id = #{dataId,jdbcType=VARCHAR},
+      </if>
+      <if test="dataType != null">
+        data_type = #{dataType,jdbcType=VARCHAR},
+      </if>
+      <if test="lastNum != null">
+        last_num = #{lastNum,jdbcType=INTEGER},
+      </if>
+      <if test="lastDate != null">
+        last_date = #{lastDate,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdateBy != null">
+        last_Update_By = #{lastUpdateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        last_Update_Time = #{lastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="postId != null">
+        post_id = #{postId,jdbcType=BIGINT},
+      </if>
+      <if test="cid != null">
+        cid = #{cid,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="findById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select * from bills_rules
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="findByType" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select * from bills_rules
+    where data_type = #{param1,jdbcType=VARCHAR}
+  </select>
+
+  <select id="findPage" resultMap="BaseResultMap">
+    select * from bills_rules
+  </select>
+
+  <select id="query" parameterType="java.util.Map" resultMap="BaseResultMap">
+		SELECT * FROM bills_rules
+		<where>
+			<if test="whereSql!=null">
+				${whereSql}
+			</if>
+		</where>
+		<if test="orderBySql!=null">
+			ORDER BY ${orderBySql}
+		</if>
+		<if test="orderBySql==null">
+			ORDER BY id DESC
+		</if>
+	</select>
+	
+	<select id="summary" parameterType="java.util.Map" resultType="java.util.Map">
+		SELECT ${summaryBySql} FROM bills_rules
+		<where>
+			<if test="whereSql!=null">
+				${whereSql}
+			</if>
+		</where>
+		<if test="orderBySql!=null">
+			ORDER BY ${orderBySql}
+		</if>
+		<if test="orderBySql==null">
+			ORDER BY id DESC
+		</if>
+	</select>
+  
+</mapper>

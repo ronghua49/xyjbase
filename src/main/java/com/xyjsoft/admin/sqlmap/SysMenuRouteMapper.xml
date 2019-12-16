@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyjsoft.admin.dao.SysMenuRouteMapper">
+
+  <resultMap id="BaseResultMap" type="com.xyjsoft.admin.model.SysMenuRoute">
+	<id column="id" jdbcType="BIGINT" property="id" />
+	<result column="menu_name" jdbcType="VARCHAR" property="menuName" />
+	<result column="menu_route" jdbcType="VARCHAR" property="menuRoute" />
+	<result column="tree_code" jdbcType="VARCHAR" property="treeCode" />
+	<result column="create_by" jdbcType="VARCHAR" property="createBy" />
+	<result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+	<result column="last_Update_By" jdbcType="VARCHAR" property="lastUpdateBy" />
+	<result column="last_Update_Time" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+	<result column="post_id" jdbcType="BIGINT" property="postId" />
+  </resultMap>
+  
+  <insert id="add" parameterType="com.xyjsoft.admin.model.SysMenuRoute">
+    insert into sys_menu_route
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="menuName != null">
+        menu_name,
+      </if>
+      <if test="menuRoute != null">
+        menu_route,
+      </if>
+      <if test="treeCode != null">
+        tree_code,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="lastUpdateBy != null">
+        last_Update_By,
+      </if>
+      <if test="lastUpdateTime != null">
+        last_Update_Time,
+      </if>
+      <if test="postId != null">
+        post_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="menuName != null">
+        #{menuName,jdbcType=VARCHAR},
+      </if>
+      <if test="menuRoute != null">
+        #{menuRoute,jdbcType=VARCHAR},
+      </if>
+      <if test="treeCode != null">
+        #{treeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdateBy != null">
+        #{lastUpdateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="postId != null">
+        #{postId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+
+  <delete id="delete" parameterType="java.lang.Long">
+    delete from sys_menu_route
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  
+  <update id="update" parameterType="com.xyjsoft.admin.model.SysMenuRoute">
+    update sys_menu_route
+    <set>
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      <if test="menuName != null">
+        menu_name = #{menuName,jdbcType=VARCHAR},
+      </if>
+      <if test="menuRoute != null">
+        menu_route = #{menuRoute,jdbcType=VARCHAR},
+      </if>
+      <if test="treeCode != null">
+        tree_code = #{treeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdateBy != null">
+        last_Update_By = #{lastUpdateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        last_Update_Time = #{lastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="postId != null">
+        post_id = #{postId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="findById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select * from sys_menu_route
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  
+  <select id="findPage" resultMap="BaseResultMap">
+    select * from sys_menu_route
+  </select>
+  
+  <select id="findByRoute" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select * from sys_menu_route where menu_route = #{menuRoute}
+  </select>
+  
+  <select id="findByRouteAndNotId"  resultMap="BaseResultMap">
+    select * from sys_menu_route where menu_route = #{menuRoute} and id != #{id}
+  </select>
+
+  <select id="query" parameterType="java.util.Map" resultMap="BaseResultMap">
+		SELECT * FROM sys_menu_route
+		<where>
+			<if test="whereSql!=null">
+				${whereSql}
+			</if>
+		</where>
+		<if test="orderBySql!=null">
+			ORDER BY ${orderBySql}
+		</if>
+		<if test="orderBySql==null">
+			ORDER BY id DESC
+		</if>
+	</select>
+	
+	<select id="summary" parameterType="java.util.Map" resultType="java.util.Map">
+		SELECT ${summaryBySql} FROM sys_menu_route
+		<where>
+			<if test="whereSql!=null">
+				${whereSql}
+			</if>
+		</where>
+		<if test="orderBySql!=null">
+			ORDER BY ${orderBySql}
+		</if>
+		<if test="orderBySql==null">
+			ORDER BY id DESC
+		</if>
+	</select>
+  
+</mapper>

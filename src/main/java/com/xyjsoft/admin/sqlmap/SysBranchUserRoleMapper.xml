@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyjsoft.admin.dao.SysBranchUserRoleMapper">
+
+  <resultMap id="BaseResultMap" type="com.xyjsoft.admin.model.SysBranchUserRole">
+	<id column="id" jdbcType="BIGINT" property="id" />
+	<result column="role_id" jdbcType="BIGINT" property="roleId" />
+	<result column="user_id" jdbcType="BIGINT" property="userId" />
+	<result column="create_by" jdbcType="VARCHAR" property="createBy" />
+	<result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+	<result column="last_Update_By" jdbcType="VARCHAR" property="lastUpdateBy" />
+	<result column="last_Update_Time" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+  </resultMap>
+  
+  <insert id="add" parameterType="com.xyjsoft.admin.model.SysBranchUserRole">
+    insert into sys_branch_user_role
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="roleId != null">
+        role_id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="lastUpdateBy != null">
+        last_Update_By,
+      </if>
+      <if test="lastUpdateTime != null">
+        last_Update_Time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="roleId != null">
+        #{roleId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdateBy != null">
+        #{lastUpdateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+
+  <delete id="delete" parameterType="java.lang.Long">
+    delete from sys_branch_user_role
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  
+  <update id="update" parameterType="com.xyjsoft.admin.model.SysBranchUserRole">
+    update sys_branch_user_role
+    <set>
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      <if test="roleId != null">
+        role_id = #{roleId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdateBy != null">
+        last_Update_By = #{lastUpdateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        last_Update_Time = #{lastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="findById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select * from sys_branch_user_role
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  
+  <select id="findPage" resultMap="BaseResultMap">
+    select * from sys_branch_user_role
+  </select>
+
+  <select id="query" parameterType="java.util.Map" resultMap="BaseResultMap">
+		SELECT * FROM sys_branch_user_role
+		<where>
+			<if test="whereSql!=null">
+				${whereSql}
+			</if>
+		</where>
+		<if test="orderBySql!=null">
+			ORDER BY ${orderBySql}
+		</if>
+		<if test="orderBySql==null">
+			ORDER BY id DESC
+		</if>
+	</select>
+	
+	<select id="summary" parameterType="java.util.Map" resultType="java.util.Map">
+		SELECT ${summaryBySql} FROM sys_branch_user_role
+		<where>
+			<if test="whereSql!=null">
+				${whereSql}
+			</if>
+		</where>
+		<if test="orderBySql!=null">
+			ORDER BY ${orderBySql}
+		</if>
+		<if test="orderBySql==null">
+			ORDER BY id DESC
+		</if>
+	</select>
+  
+</mapper>

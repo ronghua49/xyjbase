@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyjsoft.admin.dao.SysBranchUserMapper">
+
+  <resultMap id="BaseResultMap" type="com.xyjsoft.admin.model.SysBranchUser">
+	<id column="id" jdbcType="BIGINT" property="id" />
+	<result column="branch_id" jdbcType="BIGINT" property="branchId" />
+	<result column="branch_code" jdbcType="VARCHAR" property="branchCode" />
+	<result column="username" jdbcType="VARCHAR" property="username" />
+	<result column="password" jdbcType="VARCHAR" property="password" />
+	<result column="salt" jdbcType="VARCHAR" property="salt" />
+	<result column="realname" jdbcType="VARCHAR" property="realname" />
+	<result column="email" jdbcType="VARCHAR" property="email" />
+	<result column="mobile" jdbcType="VARCHAR" property="mobile" />
+	<result column="status" jdbcType="VARCHAR" property="status" />
+	<result column="dept_id" jdbcType="BIGINT" property="deptId" />
+	<result column="remark" jdbcType="VARCHAR" property="remark" />
+	<result column="create_by" jdbcType="VARCHAR" property="createBy" />
+	<result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+	<result column="last_Update_By" jdbcType="VARCHAR" property="lastUpdateBy" />
+	<result column="last_Update_Time" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+	<result column="chatid" jdbcType="BIGINT" property="chatid" />
+  </resultMap>
+  
+  <insert id="add" parameterType="com.xyjsoft.admin.model.SysBranchUser">
+    insert into sys_branch_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="branchId != null">
+        branch_id,
+      </if>
+      <if test="branchCode != null">
+        branch_code,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="salt != null">
+        salt,
+      </if>
+      <if test="realname != null">
+        realname,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="lastUpdateBy != null">
+        last_Update_By,
+      </if>
+      <if test="lastUpdateTime != null">
+        last_Update_Time,
+      </if>
+      <if test="chatid != null">
+        chatid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="branchId != null">
+        #{branchId,jdbcType=BIGINT},
+      </if>
+      <if test="branchCode != null">
+        #{branchCode,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null">
+        #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="realname != null">
+        #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=BIGINT},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdateBy != null">
+        #{lastUpdateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chatid != null">
+        #{chatid,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+
+  <delete id="delete" parameterType="java.lang.Long">
+    delete from sys_branch_user
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  
+  <update id="update" parameterType="com.xyjsoft.admin.model.SysBranchUser">
+    update sys_branch_user
+    <set>
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      <if test="branchId != null">
+        branch_id = #{branchId,jdbcType=BIGINT},
+      </if>
+      <if test="branchCode != null">
+        branch_code = #{branchCode,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null">
+        salt = #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="realname != null">
+        realname = #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="deptId != null">
+        dept_id = #{deptId,jdbcType=BIGINT},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdateBy != null">
+        last_Update_By = #{lastUpdateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        last_Update_Time = #{lastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chatid != null">
+        chatid = #{chatid,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="findById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select * from sys_branch_user
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  
+  <select id="findPage" resultMap="BaseResultMap">
+    select * from sys_branch_user
+  </select>
+
+  <select id="query" parameterType="java.util.Map" resultMap="BaseResultMap">
+		select u.*, (select d.name from sys_branch_dept d where d.id = u.dept_id) deptName from sys_branch_user u
+		<where>
+			<if test="whereSql!=null">
+				${whereSql}
+			</if>
+		</where>
+		<if test="orderBySql!=null">
+			ORDER BY ${orderBySql}
+		</if>
+		<if test="orderBySql==null">
+			ORDER BY id DESC
+		</if>
+	</select>
+	
+	<select id="summary" parameterType="java.util.Map" resultType="java.util.Map">
+		SELECT ${summaryBySql} FROM sys_branch_user
+		<where>
+			<if test="whereSql!=null">
+				${whereSql}
+			</if>
+		</where>
+		<if test="orderBySql!=null">
+			ORDER BY ${orderBySql}
+		</if>
+		<if test="orderBySql==null">
+			ORDER BY id DESC
+		</if>
+	</select>
+  
+  	<select id="findByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+		select * from sys_branch_user where username = #{username,jdbcType=VARCHAR}
+	</select>
+	
+	<select id="findUserByPostId" resultMap="BaseResultMap">
+	    select a.* from sys_branch_user a
+	    left join sys_branch_post_user b on a.id = b.user_id
+	    where b.sys_post_id = #{arg0}
+  	</select>
+</mapper>

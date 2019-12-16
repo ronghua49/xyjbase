@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyjsoft.admin.dao.SysBranchPostUserMapper">
+
+  <resultMap id="BaseResultMap" type="com.xyjsoft.admin.model.SysBranchPostUser">
+	<id column="id" jdbcType="BIGINT" property="id" />
+	<result column="sys_post_id" jdbcType="BIGINT" property="sysPostId" />
+	<result column="user_id" jdbcType="BIGINT" property="userId" />
+	<result column="is_main" jdbcType="VARCHAR" property="isMain" />
+  </resultMap>
+  
+  <insert id="add" parameterType="com.xyjsoft.admin.model.SysBranchPostUser">
+    insert into sys_branch_post_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="sysPostId != null">
+        sys_post_id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="isMain != null">
+        is_main,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="sysPostId != null">
+        #{sysPostId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="isMain != null">
+        #{isMain,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+  <delete id="delete" parameterType="java.lang.Long">
+    delete from sys_branch_post_user
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  
+  <update id="update" parameterType="com.xyjsoft.admin.model.SysBranchPostUser">
+    update sys_branch_post_user
+    <set>
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      <if test="sysPostId != null">
+        sys_post_id = #{sysPostId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="isMain != null">
+        is_main = #{isMain,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="findById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select * from sys_branch_post_user
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  
+  <select id="findPage" resultMap="BaseResultMap">
+    select * from sys_branch_post_user
+  </select>
+
+  <select id="query" parameterType="java.util.Map" resultMap="BaseResultMap">
+		SELECT * FROM sys_branch_post_user
+		<where>
+			<if test="whereSql!=null">
+				${whereSql}
+			</if>
+		</where>
+		<if test="orderBySql!=null">
+			ORDER BY ${orderBySql}
+		</if>
+		<if test="orderBySql==null">
+			ORDER BY id DESC
+		</if>
+	</select>
+	
+	<select id="summary" parameterType="java.util.Map" resultType="java.util.Map">
+		SELECT ${summaryBySql} FROM sys_branch_post_user
+		<where>
+			<if test="whereSql!=null">
+				${whereSql}
+			</if>
+		</where>
+		<if test="orderBySql!=null">
+			ORDER BY ${orderBySql}
+		</if>
+		<if test="orderBySql==null">
+			ORDER BY id DESC
+		</if>
+	</select>
+  
+</mapper>

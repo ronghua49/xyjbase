@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyjsoft.admin.dao.SysTreeMapper">
+
+  <resultMap id="BaseResultMap" type="com.xyjsoft.admin.model.SysTree">
+	<id column="id" jdbcType="BIGINT" property="id" />
+	<result column="name" jdbcType="VARCHAR" property="name" />
+	<result column="cid" jdbcType="BIGINT" property="cid" />
+	<result column="code" jdbcType="VARCHAR" property="code" />
+      <result column="last_update_by" jdbcType="BIGINT" property="lastUpdateBy" />
+      <result column="last_update_time" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+	<result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  
+  <insert id="add" parameterType="com.xyjsoft.admin.model.SysTree">
+    insert into sys_tree
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="cid != null">
+        cid,
+      </if>
+      <if test="code != null">
+        code,
+      </if>
+      <if test="lastUpdateBy != null">
+          last_update_by,
+      </if>
+      <if test="lastUpdateTime != null">
+          last_update_time,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="cid != null">
+        #{cid,jdbcType=BIGINT},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateBy != null">
+        #{lastUpdateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+  <delete id="delete" parameterType="java.lang.Long">
+    delete from sys_tree
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  
+  <update id="update" parameterType="com.xyjsoft.admin.model.SysTree">
+    update sys_tree
+    <set>
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="cid != null">
+        cid = #{cid,jdbcType=BIGINT},
+      </if>
+      <if test="code != null">
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateBy != null">
+          last_update_by = #{lastUpdateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+          last_update_time = #{lastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="findById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select * from sys_tree
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  
+  <select id="findPage" resultMap="BaseResultMap">
+    select * from sys_tree
+  </select>
+
+  <select id="fiandByCode" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select * from sys_tree
+    where code = #{code,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="fiandByCodeAndNotId" resultMap="BaseResultMap">
+    select * from sys_tree
+    where code = #{code,jdbcType=VARCHAR} and id != #{id,jdbcType=BIGINT}
+  </select>
+
+  <select id="query" parameterType="java.util.Map" resultMap="BaseResultMap">
+		SELECT * FROM sys_tree
+		<where>
+			<if test="whereSql!=null">
+				${whereSql}
+			</if>
+		</where>
+		<if test="orderBySql!=null">
+			ORDER BY ${orderBySql}
+		</if>
+		<if test="orderBySql==null">
+			ORDER BY id DESC
+		</if>
+	</select>
+	
+	<select id="summary" parameterType="java.util.Map" resultType="java.util.Map">
+		SELECT ${summaryBySql} FROM sys_tree
+		<where>
+			<if test="whereSql!=null">
+				${whereSql}
+			</if>
+		</where>
+		<if test="orderBySql!=null">
+			ORDER BY ${orderBySql}
+		</if>
+		<if test="orderBySql==null">
+			ORDER BY id DESC
+		</if>
+	</select>
+  
+</mapper>

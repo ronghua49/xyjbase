@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyjsoft.admin.dao.SysSequenceMapper">
+
+  <resultMap id="BaseResultMap" type="com.xyjsoft.admin.model.SysSequence">
+	<id column="NAME" jdbcType="VARCHAR" property="name" />
+	<result column="current_value" jdbcType="INTEGER" property="currentValue" />
+	<result column="increment" jdbcType="INTEGER" property="increment" />
+  </resultMap>
+  
+  <insert id="setVal" parameterType="com.xyjsoft.admin.model.SysSequence">
+    INSERT INTO sys_sequence (NAME,current_value,increment) 
+    VALUES (#{name}, #{currentValue}, #{increment}) 
+  </insert>
+
+  <select id="nextVal" parameterType="java.lang.String" resultType="java.lang.String">
+    SELECT NEXTVAL(#{name})
+  </select>
+  
+  <select id="currVal" parameterType="java.lang.String" resultType="java.lang.String">
+    SELECT CURRVAL(#{name})
+  </select>
+  
+</mapper>
