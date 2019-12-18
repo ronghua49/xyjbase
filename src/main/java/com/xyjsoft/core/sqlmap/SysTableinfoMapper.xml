@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyjsoft.core.dao.SysTableinfoMapper">
+
+    <resultMap id="BaseResultMap" type="com.xyjsoft.core.model.SysTableinfo">
+        <id column="ID" jdbcType="NUMERIC" property="id"/>
+        <result column="TABLENAME" jdbcType="VARCHAR" property="tablename"/>
+        <result column="LABEL" jdbcType="VARCHAR" property="label"/>
+        <result column="HEADERALIGN" jdbcType="VARCHAR" property="headeralign"/>
+        <result column="UPLEVEL" jdbcType="NUMERIC" property="uplevel"/>
+        <result column="PROP" jdbcType="VARCHAR" property="prop"/>
+        <result column="WIDTH" jdbcType="VARCHAR" property="width"/>
+        <result column="FIXED" jdbcType="NUMERIC" property="fixed"/>
+        <result column="RESIZABLE" jdbcType="NUMERIC" property="resizable"/>
+        <result column="SHOWOERFLOWTOOLTIP" jdbcType="NUMERIC" property="showoerflowtooltip"/>
+        <result column="ALIGN" jdbcType="VARCHAR" property="align"/>
+        <result column="SUMTYPE" jdbcType="VARCHAR" property="sumtype"/>
+        <result column="FIELDTYPE" jdbcType="VARCHAR" property="fieldtype"/>
+        <result column="RULE" jdbcType="VARCHAR" property="rule"/>
+        <result column="QUICK" jdbcType="NUMERIC" property="quick"/>
+        <result column="EDIT" jdbcType="NUMERIC" property="edit"/>
+        <result column="ISSHOW" jdbcType="NUMERIC" property="isshow"/>
+        <result column="ARRANGE" jdbcType="NUMERIC" property="arrange"/>
+        <result column="DICTTYPE" jdbcType="VARCHAR" property="dicttype"/>
+        <result column="EDITSHOW" jdbcType="NUMERIC" property="editshow"/>
+        <result column="DATATYPE" jdbcType="VARCHAR" property="datatype"/>
+        <result column="DATALENGTH" jdbcType="NUMERIC" property="datalength"/>
+        <result column="NULLABLE" jdbcType="VARCHAR" property="nullable"/>
+        <result column="COLUMNCOLOR" jdbcType="VARCHAR" property="columncolor"/>
+        <result column="IS_ALLOW_SEARCH" jdbcType="VARCHAR" property="isAllowSearch"/>
+        <result column="IS_COMBINE" jdbcType="VARCHAR" property="isCombine"/>
+        <result column="TIPS_TEXT" jdbcType="VARCHAR" property="tipsText"/>
+        <result column="FORMAT_TYPE" jdbcType="VARCHAR" property="formatType"/>
+        <result column="MICRO_SERVICE_NAME" jdbcType="VARCHAR" property="microServiceName"/>
+        <result column="RELATION_GROUPS" jdbcType="VARCHAR" property="relationGroups"/>
+    </resultMap>
+
+    <insert id="add" parameterType="com.xyjsoft.core.model.SysTableinfo" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        insert into SYS_TABLEINFO
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                ID,
+            </if>
+            <if test="tablename != null">
+                TABLENAME,
+            </if>
+            <if test="label != null">
+                LABEL,
+            </if>
+            <if test="headeralign != null">
+                HEADERALIGN,
+            </if>
+            <if test="uplevel != null">
+                UPLEVEL,
+            </if>
+            <if test="prop != null">
+                PROP,
+            </if>
+            <if test="width != null">
+                WIDTH,
+            </if>
+            <if test="fixed != null">
+                FIXED,
+            </if>
+            <if test="resizable != null">
+                RESIZABLE,
+            </if>
+            <if test="showoerflowtooltip != null">
+                SHOWOERFLOWTOOLTIP,
+            </if>
+            <if test="align != null">
+                ALIGN,
+            </if>
+            <if test="sumtype != null">
+                SUMTYPE,
+            </if>
+            <if test="fieldtype != null">
+                FIELDTYPE,
+            </if>
+            <if test="rule != null">
+                RULE,
+            </if>
+            <if test="quick != null">
+                QUICK,
+            </if>
+            <if test="edit != null">
+                EDIT,
+            </if>
+            <if test="isshow != null">
+                ISSHOW,
+            </if>
+            <if test="arrange != null">
+                ARRANGE,
+            </if>
+            <if test="dicttype != null">
+                DICTTYPE,
+            </if>
+            <if test="editshow != null">
+                EDITSHOW,
+            </if>
+            <if test="datatype != null">
+                DATATYPE,
+            </if>
+            <if test="datalength != null">
+                DATALENGTH,
+            </if>
+            <if test="nullable != null">
+                NULLABLE,
+            </if>
+            <if test="headermodify != null">
+                HEADERMODIFY,
+            </if>
+            <if test="columncolor != null">
+                COLUMNCOLOR,
+            </if>
+            <if test="isAllowSearch != null">
+                IS_ALLOW_SEARCH,
+            </if>
+            <if test="isCombine != null">
+                IS_COMBINE,
+            </if>
+            <if test="tipsText != null">
+                TIPS_TEXT,
+            </if>
+            <if test="formatType != null">
+                FORMAT_TYPE,
+            </if>
+            <if test="microServiceName != null">
+                MICRO_SERVICE_NAME,
+            </if>
+
+            <if test="relationGroups != null">
+                RELATION_GROUPS,
+            </if>
+        </trim>
+        <!--  -->
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+        		#{id,jdbcType=NUMERIC},
+      		</if>
+            <if test="tablename != null">
+                #{tablename,jdbcType=VARCHAR},
+            </if>
+            <if test="label != null">
+                #{label,jdbcType=VARCHAR},
+            </if>
+            <if test="headeralign !=null">
+                #{headeralign,jdbcType=VARCHAR},
+            </if>
+            <if test="uplevel != null">
+                #{uplevel,jdbcType=NUMERIC},
+            </if>
+            <if test="prop != null">
+                #{prop,jdbcType=VARCHAR},
+            </if>
+            <if test="width != null">
+                #{width,jdbcType=VARCHAR},
+            </if>
+            <if test="fixed != null">
+                #{fixed,jdbcType=NUMERIC},
+            </if>
+            <if test="resizable != null">
+                #{resizable,jdbcType=NUMERIC},
+            </if>
+            <if test="showoerflowtooltip != null">
+                #{showoerflowtooltip,jdbcType=NUMERIC},
+            </if>
+            <if test="align != null">
+                #{align,jdbcType=VARCHAR},
+            </if>
+            <if test="sumtype != null">
+                #{sumtype,jdbcType=VARCHAR},
+            </if>
+            <if test="fieldtype != null">
+                #{fieldtype,jdbcType=VARCHAR},
+            </if>
+            <if test="rule != null">
+                #{rule,jdbcType=VARCHAR},
+            </if>
+            <if test="quick != null">
+                #{quick,jdbcType=NUMERIC},
+            </if>
+            <if test="edit != null">
+                #{edit,jdbcType=NUMERIC},
+            </if>
+            <if test="isshow != null">
+                #{isshow,jdbcType=NUMERIC},
+            </if>
+            <if test="arrange != null">
+                #{arrange,jdbcType=NUMERIC},
+            </if>
+            <if test="dicttype != null">
+                #{dicttype,jdbcType=VARCHAR},
+            </if>
+            <if test="editshow != null">
+                #{editshow,jdbcType=NUMERIC},
+            </if>
+            <if test="datatype != null">
+                #{datatype,jdbcType=VARCHAR},
+            </if>
+            <if test="datalength != null">
+                #{datalength,jdbcType=NUMERIC},
+            </if>
+            <if test="nullable != null">
+                #{nullable,jdbcType=VARCHAR},
+            </if>
+            <if test="headermodify != null">
+                #{headermodify,jdbcType=NUMERIC},
+            </if>
+            <if test="columncolor != null">
+                #{columncolor,jdbcType=NUMERIC},
+            </if>
+            <if test="isAllowSearch != null">
+                #{isAllowSearch,jdbcType=NUMERIC},
+            </if>
+            <if test="isCombine != null">
+                #{isCombine,jdbcType=NUMERIC},
+            </if>
+            <if test="tipsText != null">
+                #{tipsText,jdbcType=NUMERIC},
+            </if>
+            <if test="formatType != null">
+                #{formatType,jdbcType=NUMERIC},
+            </if>
+            <if test="microServiceName != null">
+                #{microServiceName,jdbcType=NUMERIC},
+            </if>
+            <if test="relationGroups != null">
+                #{relationGroups,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <delete id="delete" parameterType="java.lang.Long">
+        delete
+        from SYS_TABLEINFO
+        where ID = #{id,jdbcType=NUMERIC}
+    </delete>
+
+    <update id="update" parameterType="com.xyjsoft.core.model.SysTableinfo">
+        update SYS_TABLEINFO
+        <set>
+            <if test="tablename != null">
+                TABLENAME = #{tablename,jdbcType=VARCHAR},
+            </if>
+           <if test="label != null">
+                LABEL = #{label,jdbcType=VARCHAR},
+            </if>
+            <if test="headeralign != null">
+                HEADERALIGN = #{headeralign,jdbcType=VARCHAR},
+            </if>
+            <if test="uplevel != null">
+                UPLEVEL = #{uplevel,jdbcType=NUMERIC},
+            </if>
+            <if test="prop != null">
+                PROP = #{prop,jdbcType=VARCHAR},
+            </if>
+            <if test="width != null">
+                WIDTH = #{width,jdbcType=VARCHAR},
+            </if>
+            <if test="fixed != null">
+                FIXED = #{fixed,jdbcType=NUMERIC},
+            </if>
+            <if test="resizable != null">
+                RESIZABLE = #{resizable,jdbcType=NUMERIC},
+            </if>
+            <if test="showoerflowtooltip != null">
+                SHOWOERFLOWTOOLTIP = #{showoerflowtooltip,jdbcType=NUMERIC},
+            </if>
+            <if test="align != null">
+                ALIGN = #{align,jdbcType=VARCHAR},
+            </if>
+            <if test="sumtype != null">
+                SUMTYPE = #{sumtype,jdbcType=VARCHAR},
+            </if>
+            <if test="fieldtype != null">
+                FIELDTYPE = #{fieldtype,jdbcType=VARCHAR},
+            </if>
+            <if test="rule != null">
+                RULE = #{rule,jdbcType=VARCHAR},
+            </if>
+            <if test="quick != null">
+                QUICK = #{quick,jdbcType=NUMERIC},
+            </if>
+            <if test="edit != null">
+                EDIT = #{edit,jdbcType=NUMERIC},
+            </if>
+            <if test="isshow != null">
+                ISSHOW = #{isshow,jdbcType=NUMERIC},
+            </if>
+            <if test="arrange != null">
+                ARRANGE = #{arrange,jdbcType=NUMERIC},
+            </if>
+            <if test="dicttype != null">
+                DICTTYPE = #{dicttype,jdbcType=VARCHAR},
+            </if>
+            <if test="editshow != null">
+                EDITSHOW = #{editshow,jdbcType=NUMERIC},
+            </if>
+            <if test="datatype != null">
+                DATATYPE = #{datatype,jdbcType=VARCHAR},
+            </if>
+            <if test="datalength != null">
+                DATALENGTH = #{datalength,jdbcType=NUMERIC},
+            </if>
+            <if test="nullable != null">
+                NULLABLE = #{nullable,jdbcType=VARCHAR},
+            </if>
+            <if test="headermodify != null">
+                HEADERMODIFY = #{headermodify,jdbcType=NUMERIC},
+            </if>
+            <if test="columncolor != null">
+                COLUMNCOLOR = #{columncolor,jdbcType=NUMERIC},
+            </if>
+            <if test="isAllowSearch != null">
+                IS_ALLOW_SEARCH = #{isAllowSearch,jdbcType=NUMERIC},
+            </if>
+            <if test="isCombine != null">
+                IS_COMBINE = #{isCombine,jdbcType=NUMERIC},
+            </if>
+            <if test="tipsText != null">
+                TIPS_TEXT = #{tipsText,jdbcType=NUMERIC},
+            </if>
+            <if test="formatType != null">
+                FORMAT_TYPE = #{formatType,jdbcType=NUMERIC},
+            </if>
+            <if test="microServiceName != null">
+                MICRO_SERVICE_NAME = #{microServiceName,jdbcType=NUMERIC},
+            </if>
+            <if test="relationGroups != null">
+                RELATION_GROUPS = #{relationGroups,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where ID = #{id,jdbcType=NUMERIC}
+    </update>
+
+    <update id="updateUpLevel" parameterType="java.lang.String">
+        update sys_tableinfo
+        <set>
+            <if test="value != null">
+                upLevel = #{value,jdbcType=NUMERIC},
+            </if>
+        </set>
+        where TABLENAME = #{tablename,jdbcType=VARCHAR} and UPLEVEL = #{uplevel,jdbcType=NUMERIC}
+    </update>
+
+    <update id="updateArrange">
+        update sys_tableinfo
+        <set>
+            <if test="arrange != null">
+                arrange = #{arrange,jdbcType=NUMERIC},
+            </if>
+        </set>
+        where ID = #{id,jdbcType=NUMERIC}
+    </update>
+
+    <select id="findById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select *
+        from SYS_TABLEINFO
+        where ID = #{id,jdbcType=NUMERIC}
+    </select>
+
+
+    <select id="findPage" resultMap="BaseResultMap">
+        select * from SYS_TABLEINFO
+    </select>
+
+    <select id="query" parameterType="java.util.Map" resultMap="BaseResultMap">
+        SELECT id,  tablename,  label,  headeralign,  uplevel,  prop,  width,  fixed,
+        resizable,  showoerflowtooltip,  align,  sumtype,  fieldtype,  rule,
+        quick,  edit,  isshow,  arrange,  dicttype,  editshow,  datatype,
+        datalength,  nullable,   ifnull(headermodify,0) as headermodify ,
+        columncolor,is_allow_search,is_combine,tips_text,format_type,micro_service_name,relation_groups
+        FROM SYS_TABLEINFO
+        <where>
+            <if test="whereSql!=null">
+                ${whereSql}
+            </if>
+        </where>
+        <if test="orderBySql!=null">
+            ORDER BY ${orderBySql}
+        </if>
+        <if test="orderBySql==null">
+            ORDER BY id DESC
+        </if>
+    </select>
+
+    <select id="findByTableName" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select id,tablename,label,headeralign,uplevel,prop,width,fixed,
+               resizable,showoerflowtooltip,align,sumtype,fieldtype,rule,
+               quick,edit,isshow,arrange,dicttype,editshow,datatype,
+               datalength,nullable,ifnull(headermodify,0) AS headermodify,
+               columncolor,is_allow_search,is_combine,tips_text,format_type,micro_service_name,relation_groups
+        from sys_tableinfo
+        where TABLENAME = #{tablename,jdbcType=VARCHAR}
+          and ISSHOW = 1
+        ORDER BY arrange ASC
+    </select>
+
+    <select id="findArrangeMax" resultMap="BaseResultMap">
+        select *
+        from sys_tableinfo
+        where TABLENAME =#{tablename,jdbcType=VARCHAR}
+          and ARRANGE >= #{minArrange,jdbcType=NUMERIC}
+        ORDER BY ARRANGE ASC
+    </select>
+    
+    <select id="findComment" parameterType="java.lang.String" resultType="java.util.Map">
+		SELECT column_name, IFNULL(column_comment,'无备注') AS comments,data_type,IFNULL(CHARACTER_MAXIMUM_LENGTH,40) AS data_length,
+		 (CASE is_nullable WHEN 'NO' THEN 'N' WHEN 'YES' THEN 'Y' END) AS nullable 
+		FROM information_schema.columns 
+		WHERE table_name=#{tableName,jdbcType=VARCHAR} 
+		AND column_name=#{fieldName,jdbcType=VARCHAR}
+    </select>
+    <select id="findFieldNameExist" parameterType="java.lang.String" resultMap="BaseResultMap">
+  		select * from sys_tableinfo where tablename=#{tableName,jdbcType=VARCHAR} and 
+  		prop=#{fieldName,jdbcType=VARCHAR}
+    </select>
+    
+    <select id="summary" parameterType="java.util.Map" resultType="java.util.Map">
+        SELECT ${summaryBySql} FROM Sys_Tableinfo
+        <where>
+            <if test="whereSql!=null">
+                ${whereSql}
+            </if>
+        </where>
+        <if test="orderBySql!=null">
+            ORDER BY ${orderBySql}
+        </if>
+        <if test="orderBySql==null">
+            ORDER BY id DESC
+        </if>
+    </select>
+</mapper>

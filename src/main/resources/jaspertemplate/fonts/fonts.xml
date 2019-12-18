@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<fontFamilies>
+
+	<fontFamily name="宋体"><!--字体名称-->
+		<normal>jaspertemplate/fonts/simsun.ttf</normal>
+		<bold>jaspertemplate/fonts/simsun.ttf</bold>
+		<italic>jaspertemplate/fonts/simsun.ttf</italic>
+		<boldItalic>jaspertemplate/fonts/simsun.ttf</boldItalic>
+		<pdfEncoding>Identity-H</pdfEncoding>
+		<pdfEmbedded>true</pdfEmbedded>
+		<exportFonts>
+			<export key="net.sf.jasperreports.html">'宋体', Arial, Helvetica, sans-serif</export>
+		</exportFonts>
+		<!--
+		<locales>
+			<locale>en_US</locale>
+			<locale>de_DE</locale>
+		</locales>
+		-->
+	</fontFamily>
+
+	<fontFamily name="黑体">
+		<normal>jaspertemplate/fonts/simhei.ttf</normal>
+		<bold>jaspertemplate/fonts/simhei.ttf</bold>
+		<italic>jaspertemplate/fonts/simhei.ttf</italic>
+		<boldItalic>jaspertemplate/fonts/simhei.ttf</boldItalic>
+		<pdfEncoding>Identity-H</pdfEncoding>
+		<pdfEmbedded>true</pdfEmbedded>
+		<exportFonts>
+			<export key="net.sf.jasperreports.html">'黑体', 'Times New Roman', Times, serif</export>
+		</exportFonts>
+	</fontFamily>
+</fontFamilies>
