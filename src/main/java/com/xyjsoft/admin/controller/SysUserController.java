@@ -12,14 +12,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.xyjsoft.admin.constants.SysConstants;
+import com.xyjsoft.admin.model.SysRole;
 import com.xyjsoft.admin.model.SysUser;
+import com.xyjsoft.admin.service.SysRoleService;
 import com.xyjsoft.admin.service.SysUserService;
+import com.xyjsoft.core.feign.XyjImFegin;
 import com.xyjsoft.core.http.HttpResult;
 import com.xyjsoft.core.page.PageRequest;
 import com.xyjsoft.core.query.PageList;
 import com.xyjsoft.core.query.QueryFilter;
 import com.xyjsoft.core.util.PasswordUtils;
 
+import io.seata.spring.annotation.GlobalTransactional;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -36,6 +40,10 @@ public class SysUserController {
 
 	@Autowired
 	private SysUserService sysUserService;
+	@Autowired
+	private XyjImFegin xyjImFegin;
+	@Autowired
+	private SysRoleService sysRoleService;
 	
 	@PostMapping(value="/save")
 	public HttpResult save(@RequestBody SysUser record) {
@@ -85,7 +93,7 @@ public class SysUserController {
 	}
 	
 	@GetMapping(value="/changeBind")
-	@ApiOperation(value="根据用户名查询用户", httpMethod = "GET", notes = "根据用户名查询用户")
+	@ApiOperation(value="更改绑定", httpMethod = "GET", notes = "更改绑定")
 	public HttpResult changeBind(@ApiParam(name="userId",value="用户ID")@RequestParam Long userId,
 			@ApiParam(name="imId",value="消息中心ID")@RequestParam Long imId) {
 		sysUserService.changeBind(userId,imId);
@@ -152,6 +160,24 @@ public class SysUserController {
 	public HttpResult listUserByDeptIds(@ApiParam(name="QueryFilter",value="查询对象")@RequestBody QueryFilter queryFilter) throws SystemException, Exception {
 		PageList<SysUser> query = sysUserService.listUserByDeptIds(queryFilter);
 		return HttpResult.ok(query);
+	}
+	
+	/**
+	 * 修改密码
+	 * @param record
+	 * @return
+	 */	
+	@GetMapping(value="/test")
+	@ApiOperation(value = "分布式事物测试", httpMethod = "GET", notes = "分布式事物测试")
+	@GlobalTransactional(timeoutMills = 300000)
+	public HttpResult test() {
+		xyjImFegin.synSave(888L, "c", "分布式事物测试", "分布式事物测试", "分布式事物测试", "分布式事物测试");
+		SysRole findById = sysRoleService.findById(15L);
+		findById.setName("分布式事物测试");
+		sysRoleService.save(findById);
+//		int a = 1/0;
+//		System.out.println(a);
+		return HttpResult.ok("OK");
 	}
 	
 }

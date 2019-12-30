@@ -4,10 +4,12 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.xyjsoft.admin.model.SysTree;
+import com.xyjsoft.core.base.MyBatisDao;
 import com.xyjsoft.core.model.SysLog;
 
 
-public interface SysLogMapper {
+public interface SysLogMapper extends MyBatisDao<String, SysLog>{
     int deleteByPrimaryKey(Long id);
 
     int insert(SysLog record);

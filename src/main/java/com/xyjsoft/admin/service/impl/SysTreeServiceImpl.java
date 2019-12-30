@@ -43,6 +43,10 @@ public class SysTreeServiceImpl extends AbstractManagerImpl<String, SysTree> imp
         }else {
         	List<SysTree> fiandByCodeAndNotId = sysTreeMapper.fiandByCodeAndNotId(code,record.getId());
         	if(fiandByCodeAndNotId.size() == 0) {
+        		SysTree findById = sysTreeMapper.findById(record.getId());
+        		if(findById.getCid() == 0) {
+        			record.setCid(0L);
+        		}
         		return sysTreeMapper.update(record);
         	}else{
         		throw new RuntimeException("code值已被使用");

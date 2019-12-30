@@ -209,6 +209,11 @@
     select u.*, (select d.name from sys_dept d where d.id = u.dept_id) deptName from sys_user u
   </select>
   
+  <select id="findById" resultMap="BaseResultMap">
+    select * from sys_user 
+    where id = #{arg0}
+  </select>
+  
   <select id="findUserByPostId" resultMap="BaseResultMap">
     select a.* from sys_user a
     left join sys_post_user b on a.id = b.user_id

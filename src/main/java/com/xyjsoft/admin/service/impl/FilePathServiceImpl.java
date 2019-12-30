@@ -70,7 +70,10 @@ public class FilePathServiceImpl extends AbstractManagerImpl<String, FilePath> i
 		FilePath findById = filePathMapper.findById(record.getId());
 		if(findById != null) {
 			if("FastDFS".equals(findById.getType())) {
-				throw new RuntimeException("上次至图片服务器为系统默认上传类型,不可删除!!");
+				throw new RuntimeException("上传至图片服务器为系统默认上传类型,不可删除!!");
+			}
+			if("XyjDFS".equals(findById.getType())) {
+				throw new RuntimeException("上传至服务器为系统默认上传类型,不可删除!!");
 			}
 		}
 		return filePathMapper.delete(record.getId());

@@ -67,6 +67,19 @@ public class FastDFSController {
 		}
         return imgUrl;
     }
+    
+    @PostMapping("/uploadFileTypeByBase64")
+    @ApiOperation(value = "上传文件方法", httpMethod = "POST", notes = "上传文件方法")
+    public String uploadFileTypeByBase64(@RequestParam("baseStr") String baseStr,@RequestParam String type) {
+    	String imgUrl = "";
+    	try {
+    		imgUrl = dfsClient.uploadFileTypeByBase64(baseStr,type);
+    	} catch (Exception e) {
+    		e.printStackTrace();
+    	}
+    	return imgUrl;
+    }
+    
     @PostMapping("/downLoadFile")
     @ApiOperation(value = "下载文件方法", httpMethod = "POST", notes = "path是admin的绝对路径")
     public void downLoadFile(@ApiParam("绝对路径") @RequestParam String path)  {

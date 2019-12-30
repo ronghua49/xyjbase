@@ -309,7 +309,7 @@ public class SysUserServiceImpl extends AbstractManagerImpl<String, SysUser> imp
 			throw new RuntimeException("未查询到用户信息");
 		}
 		findById.setChatid(imId);
-		sysUserMapper.update(findById);
+		sysUserMapper.updateByPrimaryKeySelective(findById);
 		
 	}
 }

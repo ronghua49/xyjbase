@@ -11,17 +11,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.xyjsoft.admin.model.FilePath;
+import com.xyjsoft.admin.service.FilePathService;
+import com.xyjsoft.core.http.HttpResult;
 import com.xyjsoft.core.query.PageList;
 import com.xyjsoft.core.query.QueryFilter;
-import com.xyjsoft.core.http.HttpResult;
-import com.xyjsoft.core.page.PageRequest;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-
-import com.xyjsoft.admin.model.FilePath;
-import com.xyjsoft.admin.service.FilePathService;
 
 /**
  * ---------------------------

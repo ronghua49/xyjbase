@@ -156,6 +156,7 @@ public class SysLoginController {
 			Map map = new HashMap<>();
 			map.put("token", token);
 			map.put("chatid", loginInfo.getChatId());
+			map.put("loginInfo", loginInfo);
 			return HttpResult.ok(map);
 		}else if("1".equals(usertype)) {
 			
@@ -204,6 +205,7 @@ public class SysLoginController {
 			map.put("token", token);
 			map.put("branchCode", user.getBranchCode());
 			map.put("chatid", loginInfo.getChatId());
+			map.put("loginInfo", loginInfo);
 			return HttpResult.ok(map);
 		}
 		return null;

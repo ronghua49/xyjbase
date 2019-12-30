@@ -2,6 +2,8 @@ package com.xyjsoft.admin.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.xyjsoft.admin.model.SysTree;
 import com.xyjsoft.core.base.MyBatisDao;
 
@@ -58,6 +60,6 @@ public interface SysTreeMapper  extends MyBatisDao<String, SysTree>{
      **/
     List<SysTree> fiandByCode(String code);
 
-	List<SysTree> fiandByCodeAndNotId(String code, Long id);
+	List<SysTree> fiandByCodeAndNotId(@Param(value= "code")String code,@Param(value= "id") Long id);
     
 }
