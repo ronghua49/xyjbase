@@ -27,8 +27,8 @@ function isLayerValid(layer) {
         return true;
     }
 
-    if (typeof(layer.resize) !== 'function'
-        || typeof(layer.refresh) !== 'function'
+    if (typeof (layer.resize) !== 'function'
+        || typeof (layer.refresh) !== 'function'
     ) {
         return false;
     }
@@ -49,10 +49,10 @@ function isDisplayableCulled(el, width, height) {
 }
 
 function isClipPathChanged(clipPaths, prevClipPaths) {
-    if (clipPaths == prevClipPaths) { // Can both be null or undefined
+    // displayable.__clipPaths can only be `null`/`undefined` or an non-empty array.
+    if (clipPaths === prevClipPaths) { 
         return false;
     }
-
     if (!clipPaths || !prevClipPaths || (clipPaths.length !== prevClipPaths.length)) {
         return true;
     }
@@ -61,6 +61,7 @@ function isClipPathChanged(clipPaths, prevClipPaths) {
             return true;
         }
     }
+    return false;
 }
 
 function doClip(clipPaths, ctx) {
@@ -284,12 +285,17 @@ Painter.prototype = {
         }
         var elMirror = new el.constructor({
             style: el.style,
-            shape: el.shape
+            shape: el.shape,
+            z: el.z,
+            z2: el.z2,
+            silent: el.silent
         });
         elMirror.__from = el;
         el.__hoverMir = elMirror;
-        elMirror.setStyle(hoverStyle);
+        hoverStyle && elMirror.setStyle(hoverStyle);
         this._hoverElements.push(elMirror);
+
+        return elMirror;
     },
 
     removeHover: function (el) {
@@ -355,6 +361,7 @@ Painter.prototype = {
                 this._doPaintEl(el, hoverLayer, true, scope);
             }
         }
+
         hoverLayer.ctx.restore();
     },
 
@@ -443,7 +450,7 @@ Painter.prototype = {
             for (var i = start; i < layer.__endIndex; i++) {
                 var el = list[i];
                 this._doPaintEl(el, layer, paintAll, scope);
-                el.__dirty = false;
+                el.__dirty = el.__dirtyText = false;
 
                 if (useTimer) {
                     // Date.now can be executed in 13,025,305 ops/second.
@@ -500,16 +507,14 @@ Painter.prototype = {
         ) {
 
             var clipPaths = el.__clipPaths;
+            var prevElClipPaths = scope.prevElClipPaths;
 
             // Optimize when clipping on group with several elements
-            if (!scope.prevElClipPaths
-                || isClipPathChanged(clipPaths, scope.prevElClipPaths)
-            ) {
+            if (!prevElClipPaths || isClipPathChanged(clipPaths, prevElClipPaths)) {
                 // If has previous clipping state, restore from it
-                if (scope.prevElClipPaths) {
-                    currentLayer.ctx.restore();
+                if (prevElClipPaths) {
+                    ctx.restore();
                     scope.prevElClipPaths = null;
-
                     // Reset prevEl since context has been restored
                     scope.prevEl = null;
                 }
@@ -852,7 +857,7 @@ Painter.prototype = {
             domRoot.style.display = '';
 
             // 优化没有实际改变的resize
-            if (this._width != width || height != this._height) {
+            if (this._width !== width || height !== this._height) {
                 domRoot.style.width = width + 'px';
                 domRoot.style.height = height + 'px';
 

@@ -1,3 +1,23 @@
+
+/*
+* Licensed to the Apache Software Foundation (ASF) under one
+* or more contributor license agreements.  See the NOTICE file
+* distributed with this work for additional information
+* regarding copyright ownership.  The ASF licenses this file
+* to you under the Apache License, Version 2.0 (the
+* "License"); you may not use this file except in compliance
+* with the License.  You may obtain a copy of the License at
+*
+*   http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing,
+* software distributed under the License is distributed on an
+* "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+* KIND, either express or implied.  See the License for the
+* specific language governing permissions and limitations
+* under the License.
+*/
+
 var echarts = require("../../echarts");
 
 var graphic = require("../../util/graphic");
@@ -167,26 +187,22 @@ var _default = echarts.extendChartView({
       symbolGroup.eachChild(function (symbolPath) {
         symbolPath.setStyle(itemStyle);
         symbolPath.hoverStyle = zrUtil.clone(itemHoverStyle);
+        var defaultText = data.get(data.dimensions[symbolPath.__dimIdx], idx);
+        (defaultText == null || isNaN(defaultText)) && (defaultText = '');
         graphic.setLabelStyle(symbolPath.style, symbolPath.hoverStyle, labelModel, labelHoverModel, {
           labelFetcher: data.hostModel,
           labelDataIndex: idx,
           labelDimIndex: symbolPath.__dimIdx,
-          defaultText: data.get(data.dimensions[symbolPath.__dimIdx], idx),
+          defaultText: defaultText,
           autoColor: color,
           isRectText: true
         });
       });
 
-      function onEmphasis() {
-        polygon.attr('ignore', hoverPolygonIgnore);
-      }
+      itemGroup.highDownOnUpdate = function (fromState, toState) {
+        polygon.attr('ignore', toState === 'emphasis' ? hoverPolygonIgnore : polygonIgnore);
+      };
 
-      function onNormal() {
-        polygon.attr('ignore', polygonIgnore);
-      }
-
-      itemGroup.off('mouseover').off('mouseout').off('normal').off('emphasis');
-      itemGroup.on('emphasis', onEmphasis).on('mouseover', onEmphasis).on('normal', onNormal).on('mouseout', onNormal);
       graphic.setHoverStyle(itemGroup);
     });
     this._data = data;

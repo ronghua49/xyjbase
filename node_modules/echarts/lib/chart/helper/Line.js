@@ -1,3 +1,23 @@
+
+/*
+* Licensed to the Apache Software Foundation (ASF) under one
+* or more contributor license agreements.  See the NOTICE file
+* distributed with this work for additional information
+* regarding copyright ownership.  The ASF licenses this file
+* to you under the Apache License, Version 2.0 (the
+* "License"); you may not use this file except in compliance
+* with the License.  You may obtain a copy of the License at
+*
+*   http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing,
+* software distributed under the License is distributed on an
+* "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+* KIND, either express or implied.  See the License for the
+* specific language governing permissions and limitations
+* under the License.
+*/
+
 var zrUtil = require("zrender/lib/core/util");
 
 var vector = require("zrender/lib/core/vector");
@@ -64,21 +84,20 @@ function createSymbol(name, lineData, idx) {
 
 function createLine(points) {
   var line = new LinePath({
-    name: 'line'
+    name: 'line',
+    subPixelOptimize: true
   });
   setLinePoints(line.shape, points);
   return line;
 }
 
 function setLinePoints(targetShape, points) {
-  var p1 = points[0];
-  var p2 = points[1];
-  var cp1 = points[2];
-  targetShape.x1 = p1[0];
-  targetShape.y1 = p1[1];
-  targetShape.x2 = p2[0];
-  targetShape.y2 = p2[1];
+  targetShape.x1 = points[0][0];
+  targetShape.y1 = points[0][1];
+  targetShape.x2 = points[1][0];
+  targetShape.y2 = points[1][1];
   targetShape.percent = 1;
+  var cp1 = points[2];
 
   if (cp1) {
     targetShape.cpx1 = cp1[0];
@@ -217,7 +236,11 @@ lineProto._createLine = function (lineData, idx, seriesScope) {
   }, seriesModel, idx);
   this.add(line);
   var label = new graphic.Text({
-    name: 'label'
+    name: 'label',
+    // FIXME
+    // Temporary solution for `focusNodeAdjacency`.
+    // line label do not use the opacity of lineStyle.
+    lineLabelOriginalOpacity: 1
   });
   this.add(label);
   zrUtil.each(SYMBOL_CATEGORIES, function (symbolCategory) {

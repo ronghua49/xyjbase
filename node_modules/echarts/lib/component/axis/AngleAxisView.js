@@ -1,3 +1,23 @@
+
+/*
+* Licensed to the Apache Software Foundation (ASF) under one
+* or more contributor license agreements.  See the NOTICE file
+* distributed with this work for additional information
+* regarding copyright ownership.  The ASF licenses this file
+* to you under the Apache License, Version 2.0 (the
+* "License"); you may not use this file except in compliance
+* with the License.  You may obtain a copy of the License at
+*
+*   http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing,
+* software distributed under the License is distributed on an
+* "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+* KIND, either express or implied.  See the License for the
+* specific language governing permissions and limitations
+* under the License.
+*/
+
 var zrUtil = require("zrender/lib/core/util");
 
 var graphic = require("../../util/graphic");
@@ -5,6 +25,8 @@ var graphic = require("../../util/graphic");
 var Model = require("../../model/Model");
 
 var AxisView = require("./AxisView");
+
+var AxisBuilder = require("./AxisBuilder");
 
 /*
 * Licensed to the Apache Software Foundation (ASF) under one
@@ -125,7 +147,8 @@ var _default = AxisView.extend({
   _axisLabel: function (angleAxisModel, polar, ticksAngles, radiusExtent, labels) {
     var rawCategoryData = angleAxisModel.getCategories(true);
     var commonLabelModel = angleAxisModel.getModel('axisLabel');
-    var labelMargin = commonLabelModel.get('margin'); // Use length of ticksAngles because it may remove the last tick to avoid overlapping
+    var labelMargin = commonLabelModel.get('margin');
+    var triggerEvent = angleAxisModel.get('triggerEvent'); // Use length of ticksAngles because it may remove the last tick to avoid overlapping
 
     zrUtil.each(labels, function (labelItem, idx) {
       var labelModel = commonLabelModel;
@@ -142,7 +165,7 @@ var _default = AxisView.extend({
       }
 
       var textEl = new graphic.Text({
-        silent: true
+        silent: AxisBuilder.isLabelSilent(angleAxisModel)
       });
       this.group.add(textEl);
       graphic.setTextStyle(textEl.style, labelModel, {
@@ -152,7 +175,13 @@ var _default = AxisView.extend({
         text: labelItem.formattedLabel,
         textAlign: labelTextAlign,
         textVerticalAlign: labelTextVerticalAlign
-      });
+      }); // Pack data for mouse event
+
+      if (triggerEvent) {
+        textEl.eventData = AxisBuilder.makeAxisEventDataBase(angleAxisModel);
+        textEl.eventData.targetType = 'axisLabel';
+        textEl.eventData.value = labelItem.rawLabel;
+      }
     }, this);
   },
 
